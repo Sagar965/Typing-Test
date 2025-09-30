@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-center" id="test-container">
+    
+    <div id="config-bar" class="d-flex justify-content-center align-items-center flex-wrap gap-3 mb-4 p-2 rounded">
+        <div class="btn-group config-group">
+            <button class="btn btn-config" data-config="punctuation">@ punctuation</button>
+            <button class="btn btn-config" data-config="numbers"># numbers</button>
+        </div>
+
+        <div class="btn-group config-group">
+            <button class="btn btn-config active" data-config="casing" data-value="lowercase">lowercase</button>
+            <button class="btn btn-config" data-config="casing" data-value="uppercase">uppercase</button>
+        </div>
+        <div class="btn-group config-group">
+            <button class="btn btn-config active" data-config="mode" data-value="time">time</button>
+            <button class="btn btn-config" data-config="mode" data-value="words">words</button>
+        </div>
+        <div class="btn-group config-group">
+            </div>
+        <div class="btn-group config-group">
+            <button class="btn btn-config" data-config="count" data-value="15">15</button>
+            <button class="btn btn-config active" data-config="count" data-value="30">30</button>
+            <button class="btn btn-config" data-config="count" data-value="60">60</button>
+            <button class="btn btn-config" data-config="count" data-value="120">120</button>
+        </div>
+    </div>
+    
+    <div id="test-area">
+        <div id="timer-display" class="fs-2 fw-bold mb-3">30</div>
+        
+        <div class="position-relative">
+            <div id="text-to-type" class="p-3 fs-4"></div>
+            <textarea id="user-input" class="form-control fs-4" rows="3" spellcheck="false" autocapitalize="off" autocorrect="off"></textarea>
+        </div>
+    </div>
+
+    <div id="results" class="mt-4" style="display: none;">
+        <h3>WPM: <span id="final-wpm">0</span> | Accuracy: <span id="final-accuracy">0</span>%</h3>
+        {% if current_user.is_authenticated %}
+            <p class="text-success mt-2">Your score has been saved! <a href="{{ url_for('stats') }}">View your stats.</a></p>
+        {% else %}
+            <p class="text-info mt-2"><a href="{{ url_for('login') }}">Log in</a> to save and track your progress.</p>
+        {% endif %}
+    </div>
+
+    <button id="reset-btn" class="btn btn-lg btn-danger mt-3">&#8634;</button>
+
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
