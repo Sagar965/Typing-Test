@@ -63,7 +63,7 @@ Follow these steps to run the project locally:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Sagar965/Typing-Test
 cd your-repo-name
 ```
 
