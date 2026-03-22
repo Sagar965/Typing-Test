@@ -64,7 +64,7 @@ Follow these steps to run the project locally:
 
 ```bash
 git clone https://github.com/Sagar965/Typing-Test
-cd your-repo-name
+cd Typing-Test
 ```
 
 ### 2. Create a virtual environment:
